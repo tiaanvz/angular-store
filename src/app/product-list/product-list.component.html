@@ -1,8 +1,17 @@
-<h2>Products</h2>
+  <h2>Products</h2>
+    
+  <div *ngFor="let p of lstproducts">
+    
+    <h3>
+      <a [title]="p.name + ' details'">
+        {{ p.name }}
+      </a>
+    </h3>
+    
+    <p *ngIf="p.description">Description: {{ p.description }}</p>
 
+    <button (click)="share()">Share</button>
 
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->
+    <app-product-alerts [thisproduct]="p" (donotify)="onNotify()"></app-product-alerts>
+  
+  </div>
