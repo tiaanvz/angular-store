@@ -7,7 +7,11 @@ export class CartService {
 
   items = [];
 
-  constructor() { }
+  constructor(
+    private cartService: CartService
+  ) { 
+    this.items = this.cartService.getItems();
+  }
 
   addToCart(product) {
     this.items.push(product);
